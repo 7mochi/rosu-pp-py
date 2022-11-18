@@ -5,7 +5,7 @@ version = 3
 [[package]]
 name = "rosu-pp"
 version = "0.9.3"
-ource = "git+https://github.com/7mochi/rosu-pp"
+ource = "git+https://github.com/osuperu/rosu-pp"
 
 [[package]]
 name = "rosu-pp-py"
