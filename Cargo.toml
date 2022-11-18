@@ -2,7 +2,7 @@
 name = "rosu-pp-py"
 version = "0.9.1"
 description = "osu! difficulty and pp calculation for all modes"
-authors = ["Max Ohn <ohn.m@hotmail.de>"]
+authors = ["Max Ohn <ohn.m@hotmail.de>", "7mochi <flyingcatdm@gmail.com>"]
 license = "MIT"
 edition = "2021"
 
@@ -12,7 +12,7 @@ crate-type = ["cdylib"]
 
 [dependencies]
 pyo3 = { version = "0.17", features = ["extension-module", "macros"] }
-rosu-pp = { version = "0.9.1" }
+rosu-pp = { git = "https://github.com/7mochi/rosu-pp" }
 
 [profile.release]
 lto = "fat"
