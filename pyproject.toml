@@ -4,7 +4,7 @@ build-backend = "maturin"
 
 [project]
 name = "rosu-pp-py"
-version = "0.9.1"
+version = "0.9.2"
 requires-python = ">=3.7"
 description = "osu! difficulty and pp calculation for all modes"
 classifiers = [
@@ -20,5 +20,5 @@ packages = [{ include = "rosu_pp_py" }]
 authors = [{ name = "Max Ohn", email = "ohn.m@hotmail.de" }]
 readme = "README.md"
 license = { file = "LICENSE" }
-repository = "https://github.com/MaxOhn/rosu-pp-py"
+repository = "https://github.com/7mochi/rosu-pp-py"
 keywords = ["osu", "pp", "stars", "performance", "difficulty"]

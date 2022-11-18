@@ -4,12 +4,12 @@ version = 3
 
 [[package]]
 name = "rosu-pp"
-version = "0.9.2"
+version = "0.9.3"
 ource = "git+https://github.com/7mochi/rosu-pp"
 
 [[package]]
 name = "rosu-pp-py"
-version = "0.9.1"
+version = "0.9.2"
 dependencies = [
  "rosu-pp",
  "pyo3",
