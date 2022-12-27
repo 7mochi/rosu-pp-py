@@ -174,7 +174,7 @@ source = "git+https://github.com/7mochi/rosu-pp?branch=akatsuki-pp"
 
 [[package]]
 name = "rosu-pp-py"
-version = "0.9.4"
+version = "0.9.5"
 dependencies = [
  "pyo3",
  "rosu-pp",

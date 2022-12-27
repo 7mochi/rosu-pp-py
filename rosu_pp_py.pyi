@@ -109,6 +109,12 @@ class Calculator:
         The accuracy between 0.0 and 100.0
         """
         ...
+    
+    def set_acc_2019(self, acc: float) -> None:
+        """
+        The accuracy between 0.0 and 100.0 (2019 version)
+        """
+        ...
 
     def set_n_geki(self, n_geki: int) -> None:
         """

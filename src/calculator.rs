@@ -152,6 +152,10 @@ impl PyCalculator {
         self.acc = Some(acc);
     }
 
+    fn set_acc_2019(&mut self, acc: f32) {
+        self.acc_2019 = Some(acc);
+    }
+
     fn set_n_geki(&mut self, n_geki: usize) {
         self.n_geki = Some(n_geki);
     }
