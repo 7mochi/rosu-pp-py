@@ -169,12 +169,12 @@ dependencies = [
 
 [[package]]
 name = "rosu-pp"
-version = "0.9.3"
+version = "0.9.4"
 source = "git+https://github.com/7mochi/rosu-pp?branch=akatsuki-pp"
 
 [[package]]
 name = "rosu-pp-py"
-version = "0.9.3"
+version = "0.9.4"
 dependencies = [
  "pyo3",
  "rosu-pp",
