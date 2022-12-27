@@ -3,19 +3,6 @@
 version = 3
 
 [[package]]
-name = "rosu-pp"
-version = "0.9.2"
-source = "git+https://github.com/7mochi/rosu-pp?branch=akatsuki-pp"
-
-[[package]]
-name = "rosu-pp-py"
-version = "0.9.2"
-dependencies = [
- "rosu-pp",
- "pyo3",
-]
-
-[[package]]
 name = "autocfg"
 version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -178,6 +165,19 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "62f25bc4c7e55e0b0b7a1d43fb893f4fa1361d0abe38b9ce4f323c2adfe6ef42"
 dependencies = [
  "bitflags",
+]
+
+[[package]]
+name = "rosu-pp"
+version = "0.9.2"
+source = "git+https://github.com/7mochi/rosu-pp?branch=akatsuki-pp"
+
+[[package]]
+name = "rosu-pp-py"
+version = "0.9.3"
+dependencies = [
+ "pyo3",
+ "rosu-pp",
 ]
 
 [[package]]
