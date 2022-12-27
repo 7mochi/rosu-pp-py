@@ -4,7 +4,7 @@ use pyo3::{
     types::PyDict,
     PyResult,
 };
-use rosu_pp::{AnyPP, AnyStars, DifficultyAttributes, GameMode};
+use rosu_pp::{AnyPP, AnyStars, DifficultyAttributes, GameMode, osu_2019::OsuPP, osu::{OsuPerformanceAttributes, OsuDifficultyAttributes}, PerformanceAttributes};
 
 use crate::{
     beatmap::PyBeatmap, diff_attrs::PyDifficultyAttributes, error::KwargsError,
@@ -18,6 +18,7 @@ pub struct PyCalculator {
     mode: Option<GameMode>,
     mods: Option<u32>,
     acc: Option<f64>,
+    acc_2019: Option<f32>,
     n_geki: Option<usize>,
     n_katu: Option<usize>,
     n300: Option<usize>,
@@ -253,6 +254,55 @@ impl PyCalculator {
         }
 
         Ok(calc.calculate().into())
+    }
+
+    fn performance_2019(&self, map: &PyBeatmap) -> PyResult<PyPerformanceAttributes> {
+        let mut calc = OsuPP::new(&map.inner);
+
+        set_calc! { calc, self:
+            mods,
+            combo,
+            n300,
+            n100,
+            n50,
+            passed_objects,
+        };
+        
+        if let Some(n_misses) = self.n_misses {
+            calc = calc.misses(n_misses);
+        }
+
+        if let Some(acc) = self.acc_2019 {
+            calc = calc.accuracy(acc);
+        }
+
+        let old_attrs = calc.calculate();
+
+        let attrs = OsuPerformanceAttributes {
+            difficulty: OsuDifficultyAttributes {
+                aim: 0.0,
+                speed: 0.0,
+                flashlight: 0.0,
+                slider_factor: 0.0,
+                speed_note_count: 0.0,
+                ar: old_attrs.difficulty.ar,
+                od: old_attrs.difficulty.od,
+                hp: old_attrs.difficulty.hp,
+                n_circles: old_attrs.difficulty.n_circles,
+                n_sliders: old_attrs.difficulty.n_sliders,
+                n_spinners: old_attrs.difficulty.n_spinners,
+                stars: old_attrs.difficulty.stars,
+                max_combo: old_attrs.difficulty.max_combo
+            },
+            pp: old_attrs.pp,
+            pp_acc: old_attrs.pp_acc,
+            pp_aim: old_attrs.pp_aim,
+            pp_flashlight: old_attrs.pp_flashlight,
+            pp_speed: old_attrs.pp_speed,
+            effective_miss_count: 0.0
+        };
+
+        Ok(PerformanceAttributes::Osu(attrs).into())
     }
 
     fn strains(&self, map: &PyBeatmap) -> PyResult<PyStrains> {
