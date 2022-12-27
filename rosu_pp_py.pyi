@@ -188,6 +188,12 @@ class Calculator:
         Based on all specified parameters, calculate the performance attributes for the given map
         """
         ...
+    
+    def performance_2019(self, map: Beatmap) -> PerformanceAttributes:
+        """
+        Based on all specified parameters, calculate the performance attributes for the given map (2019 version)
+        """
+        ...
 
     def strains(self, map: Beatmap) -> Strains:
         """
